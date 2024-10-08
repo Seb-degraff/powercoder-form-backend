@@ -41,11 +41,11 @@ func submit(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "      <p><b>%s</b>: %s</p>", senders[i], messages[i])
 	}
 	fmt.Fprintf(w, "   </div>")
-	fmt.Fprintf(w, "   <form action=\"\" method=\"post\">")
-	fmt.Fprintf(w, "      <p><label>your name:</label> <input name=\"sender\"></p>")
-	fmt.Fprintf(w, "      <p><label>message:</label> <input name=\"message\"></p>")
-	fmt.Fprintf(w, "      <p><input type=\"submit\"></p>")
-	fmt.Fprintf(w, "   </form>")
+	// fmt.Fprintf(w, "   <form action=\"\" method=\"post\">")
+	// fmt.Fprintf(w, "      <p><label>your name:</label> <input name=\"sender\"></p>")
+	// fmt.Fprintf(w, "      <p><label>message:</label> <input name=\"message\"></p>")
+	// fmt.Fprintf(w, "      <p><input type=\"submit\"></p>")
+	// fmt.Fprintf(w, "   </form>")
 	fmt.Fprintf(w, "</body>")
 	fmt.Fprintf(w, "</html>")
 
