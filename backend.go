@@ -36,7 +36,9 @@ func submit(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "</header>")
 	fmt.Fprintf(w, "<body>")
 	fmt.Fprintf(w, "   <div>")
-	fmt.Fprintf(w, "      <h2>Message board</h2>")
+	fmt.Fprintf(w, "      <h2>Powercoders bootcamp message board</h2>")
+	fmt.Fprintf(w, "      <p><em>You can post to this board by sending POST request to this page's url with a 'message' and a 'sender' field.</em></h2>")
+	fmt.Fprintf(w, "      <p><em>To see new messages you can <a href=''>reload</a> the page.</em></h2>")
 	for i := 0; i < len(messages); i++ {
 	fmt.Fprintf(w, "      <p><b>%s</b>: %s</p>", senders[i], messages[i])
 	}
@@ -57,6 +59,9 @@ func submit(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/submit", submit)
-	j := http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", submit)
+	port := ":8080";
+	fmt.Println("Serving on port", port );
+	j := http.ListenAndServe(port, nil)
 	check(j)
 }
