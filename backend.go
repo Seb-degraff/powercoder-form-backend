@@ -36,6 +36,10 @@ func submit(w http.ResponseWriter, r *http.Request) {
 		senders = append(senders, sender);
 	}
 
+	//Allow CORS here By * or specific origin
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
 	fmt.Fprintf(w, "<html>")
 	fmt.Fprintf(w, "<header>")
 	fmt.Fprintf(w, "   <style> body { font-family: sans-serif; } </style>")
@@ -43,8 +47,8 @@ func submit(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<body>")
 	fmt.Fprintf(w, "   <div>")
 	fmt.Fprintf(w, "      <h2>Powercoders bootcamp message board</h2>")
-	fmt.Fprintf(w, "      <p><em>You can post to this board by sending POST request to this page's url with a 'message' and a 'sender' field.</em></h2>")
-	fmt.Fprintf(w, "      <p><em>To see new messages you can <a href=''>reload</a> the page.</em></h2>")
+	fmt.Fprintf(w, "      <p><em>You can post to this board by sending POST request to this page's url with a 'message' and a 'sender' field.</em></p>")
+	fmt.Fprintf(w, "      <p><em>To see new messages you can <a href=''>reload</a> the page.</em></p>")
 	for i := 0; i < len(messages); i++ {
 		fmt.Fprintf(w, "      <p><b>%s</b>: %s</p>", senders[i], messages[i])
 	}
