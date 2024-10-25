@@ -39,6 +39,7 @@ func submit(w http.ResponseWriter, r *http.Request) {
 	//Allow CORS here By * or specific origin
     w.Header().Set("Access-Control-Allow-Origin", "*")
     w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
 
 	fmt.Fprintf(w, "<html>")
 	fmt.Fprintf(w, "<header>")
