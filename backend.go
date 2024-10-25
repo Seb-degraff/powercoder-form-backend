@@ -65,6 +65,10 @@ func submit(w http.ResponseWriter, r *http.Request) {
 
 // for AJAX practice
 func messages_json(w http.ResponseWriter, r *http.Request) {
+	//Allow CORS here By * or specific origin
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	
 	fmt.Fprintln(w, "{")
 	fmt.Fprintln(w, "  \"messages\": [")
 	for i := 0; i < len(messages); i++ {
